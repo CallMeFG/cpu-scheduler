@@ -1,0 +1,166 @@
+/* Ganti seluruh isi file style.css Anda dengan ini */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 2rem;
+    background-color: #f4f7f9;
+    color: #333;
+    line-height: 1.6;
+}
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+h1, h2, h3 {
+    color: #2c3e50;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+h1 { border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+th {
+    background-color: #3498db;
+    color: white;
+}
+input[type="number"] {
+    width: 80px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+}
+.controls, .actions {
+    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+.btn-add { background-color: #2ecc71; color: white; }
+.btn-add:hover { background-color: #27ae60; }
+.btn-delete { background-color: #e74c3c; color: white; padding: 5px 10px; font-size: 12px; }
+.btn-delete:hover { background-color: #c0392b; }
+.btn-calculate { background-color: #3498db; color: white; }
+.btn-calculate:hover { background-color: #2980b9; }
+select { padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+#time-quantum-container { display: flex; align-items: center; gap: 0.5rem; }
+#results { margin-top: 2rem; }
+.gantt-chart { display: flex; border: 1px solid #ccc; padding: 10px; background: #ecf0f1; overflow-x: auto; min-height: 80px; }
+.gantt-block { display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; font-weight: bold; border-right: 1px solid #bdc3c7; position: relative; cursor: help; }
+.gantt-block .process-id { font-size: 1.2rem; }
+.gantt-block .time-stamp { position: absolute; bottom: -25px; left: -5px; color: #333; font-size: 0.8rem; }
+.gantt-block:last-child .time-stamp-end { position: absolute; bottom: -25px; right: -5px; color: #333; font-size: 0.8rem; }
+.gantt-block.idle { background-image: repeating-linear-gradient(45deg, #d3d3d3, #d3d3d3 10px, #e0e0e0 10px, #e0e0e0 20px); color: #555; }
+#calculation-details ul { list-style-type: none; padding: 0; margin-bottom: 1rem; }
+#calculation-details li { background-color: #ecf0f1; padding: 10px 15px; border-radius: 4px; margin-bottom: 8px; font-size: 0.95rem; border-left: 5px solid #3498db; }
+
+/* =============================================== */
+/* === KODE RESPONSIVE DIMULAI DI SINI === */
+/* =============================================== */
+
+/* Untuk Tablet (dan layar lebih kecil) */
+@media (max-width: 992px) {
+    body {
+        padding: 1rem;
+    }
+    .container {
+        padding: 1.5rem;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Untuk Ponsel */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+    .container {
+        padding: 1rem;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    .actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .actions > * {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .actions .btn-calculate {
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+
+    /* --- Transformasi Tabel Menjadi Kartu --- */
+    table thead {
+        /* Sembunyikan header tabel di layar kecil */
+        display: none;
+    }
+
+    table, tbody, tr, td {
+        display: block;
+        width: 100%;
+    }
+
+    tr {
+        margin-bottom: 1.5rem;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 1rem;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    td {
+        border: none;
+        padding: 8px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: right;
+    }
+
+    td::before {
+        /* Tambahkan label dari atribut data-label */
+        content: attr(data-label);
+        font-weight: bold;
+        text-align: left;
+        margin-right: 1rem;
+    }
+    
+    /* Khusus untuk tombol hapus agar tetap di kanan */
+    td:last-child {
+        justify-content: flex-end;
+    }
+    td:last-child::before {
+        display: none;
+    }
+}
